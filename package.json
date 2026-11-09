@@ -1,0 +1,13 @@
+{
+  "name": "president-game",
+  "version": "0.1.0",
+  "description": "PRESIDENT — بازی مدیریتی شبیه‌ساز ریاست‌جمهوری (فارسی، RTL، آفلاین)",
+  "private": true,
+  "scripts": {
+    "build": "node build.js",
+    "test:engine": "node test/engine.test.js",
+    "test:e2e": "node test/e2e.js",
+    "test": "node build.js && node test/engine.test.js && node test/e2e.js && node test/file-mode.js",
+    "serve": "node -e \"const h=require('http'),f=require('fs'),p=require('path');const m={'.html':'text/html','.js':'text/javascript','.png':'image/png','.svg':'image/svg+xml','.webmanifest':'application/manifest+json'};h.createServer((q,r)=>{const u=q.url.split('?')[0];const x=p.join('dist',u==='/'?'index.html':u);if(!f.existsSync(x)){r.writeHead(404);return r.end()}r.writeHead(200,{'content-type':m[p.extname(x)]||'text/plain'});r.end(f.readFileSync(x))}).listen(8080,()=>console.log('http://localhost:8080'))\""
+  }
+}
